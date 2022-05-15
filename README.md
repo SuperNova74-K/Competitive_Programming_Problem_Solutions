@@ -1,1 +1,6 @@
 # Competitive_Programming_Problem_Solutions
+
+This Repo Has the solutions to all the Problems I have created on Code_forces, AtCoder etc...
+You can search about the problem you are stuck with and learn how I solved it.....
+
+Khaled Waleed Salah.
