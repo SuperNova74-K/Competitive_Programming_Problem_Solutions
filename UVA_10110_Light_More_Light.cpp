@@ -7,21 +7,19 @@
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+//    ios_base::sync_with_stdio(false);
+//    cin.tie(0);
+//    cout.tie(0);
 
-    long long n;
-    cin >> n;
-    while(n != 0){
-        int sqt = sqrt(n);
+    unsigned int n;
+
+    while(cin >> n && n != 0){
+        unsigned int sqt = sqrt(n);
         if(sqt * sqt == n){
-            cout << "yes";
+            cout << "yes\n";
         }else{
-            cout << "no";
+            cout << "no\n";
         }
-        cout << '\n';
-        cin >> n;
     }
 
 
