@@ -15,24 +15,21 @@ int main() {
 
     fio
 
-    ll t,enough;
+    ll q, n, l = 0 , r = 0; cin >> q;
     char lol;
-    cin >> t;
-    cin >> lol >> enough;
-    arr[enough] = 0;
-    t--;
-    ll l = -1,r = 1;
-    while (t--) {
-        cin >> lol;
-        ll temp; cin >> temp;
-        if( lol == 'L'){
-            arr[temp] = l;
-            l--;
-        }else if (lol == 'R'){
-            arr[temp] = r;
-            r++;
+    q--;
+    cin >> lol >> n;
+    l--;
+    r++;
+    arr[n] = 0;
+    while(q--){
+        cin >> lol >> n;
+        if(lol == 'R'){
+            arr[n] = r++;
+        }else if (lol == 'L'){
+            arr[n] = l--;
         }else{
-            cout << min(abs(arr[temp] - r), abs(arr[temp] - l)) - 1 << '\n';
+            cout << min(abs(arr[n] - r), abs(arr[n] - l)) - 1<< '\n';
         }
     }
 

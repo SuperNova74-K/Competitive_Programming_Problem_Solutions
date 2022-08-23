@@ -40,7 +40,7 @@ using namespace std;
 
 
 // this solution uses binary search to decide the length of the sub-array
-// and Prefix sum to sum without loops as well as sliding window to verify the size for the binary search
+//// and Prefix sum to sum without loops as well as sliding window to verify the size for the binary search
 void solve() {
     ll n, t;
     cin >> n >> t;
