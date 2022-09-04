@@ -20,6 +20,7 @@
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
 
+// refer to the problem's tutorial
 void solve() {
     string lol; cin >> lol;
     int arr[266]{0};
