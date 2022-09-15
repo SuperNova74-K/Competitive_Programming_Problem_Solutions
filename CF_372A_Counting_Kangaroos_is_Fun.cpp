@@ -25,31 +25,24 @@ int main() {
     fio
 
     ll n; cin >> n;
-    vector<ll>vec(n+1);
-    for (int i = 1; i <= n; ++i) {
+    ll answer = 0;
+    vector<ll>vec(n);
+    for (int i = 0; i < n; ++i) {
         cin >> vec[i];
     }
-
-    std::sort(vec.begin() + 1, vec.end());
-    ll l = 1,r = n/2+1;
-    while(r<=n){
-        if(vec[r] >= vec[l] * 2 && vec[l]){
-            vec[r] = 0;
+    ll l = 0,r = n/2 + (n&1);
+    std::sort(vec.rbegin(), vec.rend());
+    while(r<n){
+        if(vec[l] >= vec[r] * 2){
+            l++;
             r++;
-            l++;
-        }else if(not vec[l]){
-            l++;
+            answer++;
         }else{
             r++;
         }
     }
-    ll answer = 0;
-    for (int i = 1; i <= n; ++i) {
-        answer += (vec[i] != 0);
-    }
-    cout << answer;
 
-
+    cout << n - answer;
 
     return 0;
 }
