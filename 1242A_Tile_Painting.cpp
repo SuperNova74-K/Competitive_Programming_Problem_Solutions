@@ -25,14 +25,6 @@ using namespace std;
 typedef vector<ll> vll;
 typedef vector<int> vint;
 
-template<typename generic, typename also_generic>
-long double maxof(generic a, also_generic b){
-    if(a > b){
-        return a;
-    }else{
-        return b;
-    }
-}
 
 template<typename lol>
 vector<lol> divisorsof(lol num){
@@ -53,24 +45,18 @@ vector<lol> divisorsof(lol num){
 int main() {
     fio
     ll n;cin >> n;
-    vector<ll>divisors = divisorsof(n);
-    std::sort(divisors.begin(), divisors.end());
-    ll answer = 0;
-    for (int i = 1; i < divisors.size()-1 ; ++i) {
-        if((n/divisors[i]) & 1){
-            ll temp_answer = 0;
-            temp_answer += divisors[i];
-            temp_answer += (((n/divisors[i])-1)/2)*divisors[i];
-            answer = maxof(answer, temp_answer);
 
-        }else{
-            answer = maxof(answer,n/divisors[i]);
-        }
+    vector<ll>v = divisorsof(n);
+//    if(v.size() <= 2){
+//        cout << n;
+//        return 0;
+//    }
+    ll g = v[1];
+    for (int i = 2; i < v.size()-1; ++i) {
+        g = __gcd(g,v[i]);
     }
 
-    if(answer == 0){
-        answer = n;
-    }
-    cout << answer;
+    cout << g;
+
     return 0;
 }
