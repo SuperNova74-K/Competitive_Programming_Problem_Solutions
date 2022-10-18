@@ -6,13 +6,13 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 28/Sep/2022 on 10:42:23
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem AC_abc220_c_Long_Sequence
 
 #include<bits/stdc++.h>
 
@@ -22,25 +22,37 @@
 #define fio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
+typedef vector<ll> vll;
+typedef vector<int> vint;
 
-void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
-        }
-    }
-    cout << k << newline;
-}
+
 
 
 int main() {
     fio
 
-    int t;cin >> t;
-    while(t--){
-        solve();
+    ll n, sum{0};cin >> n;
+    vll v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
+        sum+=v[i];
     }
+    ll x; cin >> x;
+    ll answer = 0;
+    if(x>sum){
+        answer += (x/sum);
+        x-=answer*sum;
+        answer*=n;
+    }
+    ll second_sum = 0;
+    for (int i = 0; i < n; ++i) {
+        second_sum+=v[i];
+        if(second_sum > x){
+            answer += i+1;
+            break;
+        }
+    }
+    cout << answer;
 
     return 0;
 }

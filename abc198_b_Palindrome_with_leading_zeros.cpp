@@ -6,13 +6,13 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 27/Sep/2022 on 16:37:45
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem abc198_b_Palindrome_with_leading_zeros
 
 #include<bits/stdc++.h>
 
@@ -23,23 +23,24 @@
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
 
-void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
-        }
-    }
-    cout << k << newline;
-}
-
 
 int main() {
     fio
 
-    int t;cin >> t;
-    while(t--){
-        solve();
+    string lol;
+    cin >> lol;
+    string after;
+    ll indx = lol.size()-1;
+    while(indx>=0 && lol[indx] == '0'){
+        indx--;
+    }
+    after = lol.substr(0,indx+1);
+    string reversed = after;
+    std::reverse(reversed.begin(), reversed.end());
+    if(after == reversed){
+         cout << "Yes";
+    }else{
+        cout << "No";
     }
 
     return 0;

@@ -6,16 +6,15 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 20/Sep/2022 on 16:29:15
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem CF_433B_Kuriyama_Mirais_Stones
 
 #include<bits/stdc++.h>
-
 #define ll long long
 #define spacebar " "
 #define newline '\n'
@@ -23,24 +22,36 @@
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
 
-void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
+
+
+
+int main(){
+    fio
+    
+    ll n; cin >> n;
+    vector<ll>v(n+1);
+    for (int i = 1; i <= n; ++i) {
+        cin >> v[i];
+    }
+    vector<ll>v2{v};
+    for (int i = 1; i <= n; ++i) {
+        v[i]+=v[i-1];
+    }
+    std::sort(v2.begin(), v2.end());
+    for (int i = 1; i <= n; ++i) {
+        v2[i]+=v2[i-1];
+    }
+    ll m, l ,r; cin >> m;
+    for (int i = 0; i < m; ++i) {
+        cin >> n >> l >> r;
+        if(n == 1){
+            cout << v[r]-v[l-1] << newline;
+        }else{
+            cout << v2[r]-v2[l-1] << newline;
         }
     }
-    cout << k << newline;
-}
 
 
-int main() {
-    fio
-
-    int t;cin >> t;
-    while(t--){
-        solve();
-    }
 
     return 0;
 }

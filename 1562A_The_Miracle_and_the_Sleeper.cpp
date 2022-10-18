@@ -6,13 +6,13 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 26/Sep/2022 on 22:23:19
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem 1562A_The_Miracle_and_the_Sleeper
 
 #include<bits/stdc++.h>
 
@@ -23,22 +23,24 @@
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
 
-void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
-        }
+void solve() {
+    ll l,r;
+    cin >> l >> r;
+    if(l <= (r/2)+1){
+        cout << (r-1)/2;
+    }else{
+        cout << r-l;
     }
-    cout << k << newline;
+    cout << newline;
 }
 
 
 int main() {
     fio
 
-    int t;cin >> t;
-    while(t--){
+    int t;
+    cin >> t;
+    while (t--) {
         solve();
     }
 

@@ -6,39 +6,60 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 18/Sep/2022 on 13:26:35
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem CF_1613C_Poisoned_Dagger
 
 #include<bits/stdc++.h>
 
 #define ll long long
-#define spacebar " "
-#define newline '\n'
 #define fio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
 
-void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
+void solve() {
+    ll n,h; cin >> n >> h;
+    vector<ll>v(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> v[i];
+    }
+                  //1e18
+    ll l = 0, r = 1e18,midpoint, damage = 0, answer = LLONG_MAX;
+    while(l <= r){
+        midpoint = (l+r)/2;
+
+        // check
+        damage = 0;
+        for (int i = 0; i < n-1; ++i) {
+            if(v[i] + midpoint-1 >= v[i+1]){
+                damage += v[i+1] - v[i];
+            }else{
+                damage += midpoint;
+            }
+        }
+        damage += midpoint;
+
+        if(damage >= h){
+            r = midpoint-1;
+            answer = min(answer, midpoint);
+        }else{
+            l = midpoint+1;
         }
     }
-    cout << k << newline;
+    cout << answer << '\n';
 }
 
 
 int main() {
     fio
 
-    int t;cin >> t;
-    while(t--){
+    int t;
+    cin >> t;
+    while (t--) {
         solve();
     }
 

@@ -6,13 +6,13 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 20/Sep/2022 on 06:51:02
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem AC_246D-2-variable_Function
 
 #include<bits/stdc++.h>
 
@@ -23,24 +23,24 @@
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
 
-void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
-        }
-    }
-    cout << k << newline;
-}
 
 
 int main() {
     fio
-
-    int t;cin >> t;
-    while(t--){
-        solve();
+    ll n; cin >> n;
+    ll x = 8e18;
+    ll i = 0 , j = 1e6;
+    while(j>=i){
+        ll f = i*i*i   +   i*i*j   +   j*j*i   +    j*j*j;
+        if(f >= n){
+            j--;
+            x = min(x,f);
+        }else{
+            i++;
+        }
     }
+
+    cout << x;
 
     return 0;
 }

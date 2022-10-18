@@ -6,40 +6,49 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 09/Sep/2022 on 16:25:07
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem CF_75C_Modified_GCD
 
 #include<bits/stdc++.h>
-
 #define ll long long
-#define spacebar " "
-#define newline '\n'
 #define fio ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #define ones_in_binary(x) __builtin_popcount(x)
 using namespace std;
 
-void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
-        }
-    }
-    cout << k << newline;
-}
 
 
-int main() {
+
+int main(){
     fio
 
-    int t;cin >> t;
+    ll a,b; cin >> a >> b;
+    ll g = gcd(a,b);
+    vector<ll>divisors;
+    for (int i = 1; i*i <=g; ++i) {
+        if(g%i==0){
+            divisors.push_back(i);
+            if(i!=g/i) divisors.push_back(g/i);
+        }
+    }
+    std::sort(divisors.begin(), divisors.end());
+
+    int t; cin >> t;
     while(t--){
-        solve();
+        ll l,h; cin >> l >> h;
+        int answer = -1;
+        for (int i = divisors.size()-1; i >=0 ; --i) {
+            if(divisors[i]<=h && divisors[i]>=l){
+                answer = i;
+                break;
+            }
+        }
+        if(answer != -1)
+        cout << divisors[answer] << '\n';else cout << -1<<'\n';
     }
 
     return 0;

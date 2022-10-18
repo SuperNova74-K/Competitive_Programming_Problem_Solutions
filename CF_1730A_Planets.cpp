@@ -6,16 +6,15 @@
 // Bismillah Al Rahman Al Rahim
 
 // Author           : Khaled Waleed
-// File Created on  : 24/Sep/2022 on 22:05:14
+// File Created on  : 25/Sep/2022 on 17:32:32
 // University       : Cairo University - Faculty Of Computers and Artificial Intelligence
 // LinkedIn         : https://www.linkedin.com/in/khaled-waleed-salah/
 // Telegram         : https://t.me/SuperNova74_K
 // FEEL free to contact me for any help :P
 
-// This is a Solution for Problem CF_1560A_Dislike_of_Threes
+// This is a Solution for Problem CF_1730A_Planets
 
 #include<bits/stdc++.h>
-
 #define ll long long
 #define spacebar " "
 #define newline '\n'
@@ -24,23 +23,27 @@
 using namespace std;
 
 void solve(){
-    ll k; cin >> k;
-    for (int i = 1; i <= k; ++i) {
-        if(i % 3 == 0 || i % 10 == 3){
-            k++;
-        }
+    ll n,c; cin >> n >> c;
+    vector<int>v(101);
+    ll temp, answer = 0;
+    for (int i = 0; i < n; ++i) {
+        cin >> temp;
+        v[temp]++;
     }
-    cout << k << newline;
+    for (int i = 0; i < 101; ++i) {
+    answer += min(v[i], (int)c);
+    }
+    cout << answer << newline;
 }
 
 
-int main() {
+int main(){
     fio
-
-    int t;cin >> t;
+    
+    int t; cin >> t;
     while(t--){
         solve();
     }
-
+    
     return 0;
 }
