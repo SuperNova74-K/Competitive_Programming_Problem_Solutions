@@ -36,16 +36,15 @@ int main() {
 
     ll n; cin >> n;
     vint v(n);
-    priority_queue<int>largest;
-    priority_queue<int, vector<int>, greater<> >least;
+    int mn = INT32_MAX,mx = -1;
     for (int i = 0; i < n; ++i) {
         cin >> v[i];
-        least.push(v[i]);
-        largest.push(v[i]);
+        mn = min(mn,v[i]);
+        mx = max(mx,v[i]);
     }
     ll answer = 0;
     for (int i = 0; i < n; ++i) {
-        if(v[i] > least.top() && v[i] < largest.top()){
+        if(v[i] > mn && v[i] < mx){
             answer++;
         }
     }
